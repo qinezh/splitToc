@@ -1,0 +1,8 @@
+version: 1.0.{build}
+image: Visual Studio 2015
+build_script:
+  - msbuild csharp/SplitToc.sln /p:Configuration=Release
+test: off
+on_success:
+  - powershell ./csharp/tools/pack.ps1
+  - nuget push ./csharp/tools/SplitToc.1.0.0.nupkg %mygetKey% -Source %mygetUrl%

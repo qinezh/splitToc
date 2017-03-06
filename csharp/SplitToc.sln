@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitToc", "SplitToc.csproj", "{7D3F52E0-D5E6-44AC-9465-E0A8EF88711B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45ACEE6E-4FD4-4B70-9CB8-08BE894C1BA0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{A8AF4651-5DFE-4EF5-8F83-D569130A2F03}"
+	ProjectSection(SolutionItems) = preProject
+		tools\run.ps1 = tools\run.ps1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D3F52E0-D5E6-44AC-9465-E0A8EF88711B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D3F52E0-D5E6-44AC-9465-E0A8EF88711B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D3F52E0-D5E6-44AC-9465-E0A8EF88711B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D3F52E0-D5E6-44AC-9465-E0A8EF88711B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7D3F52E0-D5E6-44AC-9465-E0A8EF88711B} = {45ACEE6E-4FD4-4B70-9CB8-08BE894C1BA0}
+	EndGlobalSection
+EndGlobal
