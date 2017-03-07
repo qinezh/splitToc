@@ -1,6 +1,7 @@
 version: 1.0.{build}
 image: Visual Studio 2015
 build_script:
+  - nuget restore ./csharp/SplitToc.sln
   - msbuild ./csharp/SplitToc.sln /p:Configuration=Release
 test: off
 on_success:
