@@ -17,7 +17,7 @@ function ProcessLastExitCode {
     }
 }
 
-$version = "1.0.2"
+$version = "1.0.3"
 $currentDir = $($MyInvocation.MyCommand.Definition) | Split-Path
 $nuget = "$env:LOCALAPPDATA\Nuget\Nuget.exe"
 if (-not(Test-Path $nuget))
