@@ -7,7 +7,7 @@ $errorActionPreference = 'Stop'
 
 $currentDir = $($MyInvocation.MyCommand.Definition) | Split-Path
 $repositoryRoot = $ParameterDictionary.environment.repositoryRoot
-$tocPath = $ParameterDictionary["toc_path_need_to_be_splitted"]
+$tocPath = $ParameterDictionary.environment["toc_path_need_to_be_splitted"]
 if ($tocPath)
 {
 	Write-Host "toc_path_need_to_be_splitted in openpublish.config.json can't be found, skip to split toc.yml into namespace level.";
