@@ -6,4 +6,4 @@ build_script:
 test: off
 on_success:
   - powershell ./csharp/tools/pack.ps1
-  - nuget push ./csharp/tools/SplitToc.1.0.0.nupkg %mygetKey% -Source %mygetUrl%
+  - nuget push ./SplitToc.1.0.0.nupkg %mygetKey% -Source %mygetUrl%
