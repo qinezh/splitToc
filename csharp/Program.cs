@@ -85,6 +85,11 @@ namespace SplitToc
                     Name = ns.Name,
                     Items = ns.Items
                 };
+                if (ns.Metadata != null)
+                {
+                    splittedTocItem.Metadata = ns.Metadata;
+                }
+
                 var splittedTocModel = new TocViewModel(new List<TocItemViewModel> {splittedTocItem});
 
                 YamlUtility.Serialize(splittedTocPath, splittedTocModel);
