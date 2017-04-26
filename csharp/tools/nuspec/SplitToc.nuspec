@@ -15,5 +15,6 @@
   </metadata>
   <files>
     <file src="..\..\bin\Release\*" target="tools" exclude="**\*.pdb;**\*.xml"/>
+    <file src="..\..\tools\run.ps1" target="tools"/>
   </files>
 </package>
