@@ -67,7 +67,7 @@ namespace SplitToc
             {
                 var splittedTocPath = Path.Combine(originalTocDir, "_splitted", ns.Uid, "toc.yml");
                 var splittedTocRelativePath = PathUtility.MakeRelativePath(originalTocDir, splittedTocPath);
-                var reversedRelativePath = PathUtility.MakeRelativePath(splittedTocPath, originalTocDir);
+                var reversedRelativePath = PathUtility.MakeRelativePath(Path.GetDirectoryName(splittedTocPath), originalTocDir);
                 ProcessHref(ns, reversedRelativePath.Replace('\\', '/'));
 
                 var splittedTocDir = Path.GetDirectoryName(splittedTocPath);
