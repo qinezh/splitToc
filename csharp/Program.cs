@@ -67,6 +67,8 @@ namespace SplitToc
             {
                 var splittedTocPath = Path.Combine(originalTocDir, "_splitted", ns.Uid, "toc.yml");
                 var splittedTocRelativePath = PathUtility.MakeRelativePath(originalTocDir, splittedTocPath);
+                var reversedRelativePath = PathUtility.MakeRelativePath(splittedTocPath, originalTocDir);
+                ProcessHref(ns, reversedRelativePath.Replace('\\', '/'));
 
                 var splittedTocDir = Path.GetDirectoryName(splittedTocPath);
                 if (splittedTocDir == null)
@@ -107,6 +109,19 @@ namespace SplitToc
 
             YamlUtility.Serialize(originalTocPath, mergedTocModel);
             Console.WriteLine($"Rewrite original toc file ({originalTocPath})");
+        }
+
+        private static void ProcessHref(TocItemViewModel item, string relativePath)
+        {
+            if (item.Items == null || item.Items.Count == 0)
+            {
+                return;
+            }
+            foreach (var i in item.Items)
+            {
+                i.Href = PathUtility.IsRelativePath(i.Href) ? Path.Combine(relativePath, i.Href) : i.Href;
+                ProcessHref(i, relativePath);
+            }
         }
     }
 }
