@@ -1,9 +1,26 @@
-version: 1.0.{build}
-image: Visual Studio 2015
-build_script:
-  - nuget restore ./csharp/SplitToc.sln
-  - msbuild ./csharp/SplitToc.sln /p:Configuration=Release
-test: off
-on_success:
-  - powershell ./csharp/tools/pack.ps1
-  - nuget push ./SplitToc.1.0.4.nupkg %mygetKey% -Source %mygetMasterUrl%
+-
+  branches:
+    only:
+      - master
+  version: 1.0.{build}
+  image: Visual Studio 2015
+  build_script:
+    - nuget restore ./csharp/SplitToc.sln
+    - msbuild ./csharp/SplitToc.sln /p:Configuration=Release
+  test: off
+  on_success:
+    - nuget pack ./csharp/tools/nuspec/SplitToc.nuspec -version %APPVEYOR_BUILD_VERSION% -Prop Configuration=Release
+    - nuget push ./SplitToc.%APPVEYOR_BUILD_VERSION%.nupkg %mygetKey% -Source %mygetMasterUrl%
+-
+  branches:
+    only:
+      - dev
+  version: 1.0.{build}
+  image: Visual Studio 2015
+  build_script:
+    - nuget restore ./csharp/SplitToc.sln
+    - msbuild ./csharp/SplitToc.sln /p:Configuration=Release
+  test: off
+  on_success:
+    - nuget pack ./csharp/tools/nuspec/SplitToc.nuspec -version %APPVEYOR_BUILD_VERSION% -Prop Configuration=Release
+    - nuget push ./SplitToc.%APPVEYOR_BUILD_VERSION%.nupkg %mygetKey% -Source %mygetDevUrl%
